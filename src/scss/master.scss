@@ -2,6 +2,9 @@
 @import "colors";
 @import "fonts";
 
+@import "settings";
+@import "~hamburgers/_sass/hamburgers/hamburgers";
+
 // Reset
 * {
   box-sizing: border-box;
@@ -180,12 +183,25 @@ a {
     background-color: $np-blue-5;
     color: #ffffff;
   }
+
+  &__menu {
+    @include center;
+    @include transition-background;
+    border-radius: 4px;
+    display: none;
+    height: 32px;
+    width: 32px;
+  }
 }
 
 @media only screen and (max-width: 685px) {
   .navbar {
     &__link {
       display: none;
+    }
+
+    &__menu {
+      display: flex;
     }
   }
 }
