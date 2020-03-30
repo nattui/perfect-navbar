@@ -1,0 +1,198 @@
+// Imports
+@import "colors";
+@import "fonts";
+
+// Reset
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: Jost, -apple-system, sans-serif;
+  height: 1200px;
+  margin: 0;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+// Mixins
+@mixin debug($color) {
+  background-color: rgba($color, 0.1);
+  border: 1px dashed rgba($color, 0.5);
+}
+
+@mixin full {
+  height: 100%;
+  width: 100%;
+}
+
+@mixin center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin center-horizontal {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin center-vertical {
+  display: flex;
+  align-items: center;
+}
+
+@mixin transition($property) {
+  transition: $property 0.2s;
+}
+
+@mixin transition-background {
+  outline: none;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: $np-gray-2;
+  }
+
+  &:active,
+  &:focus {
+    background-color: $np-gray-3;
+  }
+}
+
+@mixin transition-button($color) {
+  outline: none;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: darken($color, 10%);
+  }
+
+  &:active,
+  &:focus {
+    background-color: darken($color, 20%);
+  }
+}
+
+// Base
+.navbar {
+  // @include debug;
+  @include center-vertical;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.04), 0 0 2px rgba(0, 0, 0, 0.06), 0 4px 8px rgba(0, 0, 0, 0.04);
+  height: 64px;
+
+  &__main {
+    // @include debug(blue);
+    @include full;
+    @include center;
+    user-select: none;
+  }
+
+  &__wrapper {
+    // @include debug(blue);
+    @include center-vertical;
+    height: inherit;
+    margin: 0 16px;
+    justify-content: space-between;
+    width: 1024px;
+  }
+
+  &__brand {
+    // @include debug(red);
+    @include center-vertical;
+    height: inherit;
+  }
+
+  &__logo {
+    // @include debug(green);
+    @include center-vertical;
+    @include transition-background;
+    border-radius: 4px;
+    padding: 8px;
+  }
+
+  &__logomark {
+    // @include debug(green);
+    @include center-vertical;
+    margin-right: 8px;
+    max-height: 32px;
+    max-width: 28.26px;
+    min-height: 32px;
+    min-width: 28.26px;
+  }
+
+  &__logotype {
+    // @include debug(green);
+    @include center-vertical;
+    max-height: 22.27px;
+    max-width: 58.37px;
+    min-height: 22.27px;
+    min-width: 58.37px;
+  }
+
+  &__links {
+    // @include debug(green);
+    @include center-vertical;
+    height: inherit;
+  }
+
+  &__link {
+    // @include debug(green);
+    @include center-vertical;
+    @include transition-background;
+    border-radius: 4px;
+    color: $np-gray-7;
+    font-size: 14px;
+    height: 32px;
+    margin: 0 8px;
+    // margin-right: 16px;
+    padding: 0 8px;
+  }
+
+  &__button {
+    @include center-vertical;
+    border-radius: 4px;
+    font-size: 14px;
+    height: 32px;
+    margin: 0 8px;
+    // outline: none;
+    padding: 0 16px;
+  }
+
+  &__login {
+    @include transition-button($np-blue-1);
+    background-color: $np-blue-1;
+    color: $np-blue-8;
+  }
+
+  &__signup {
+    @include transition-button($np-blue-5);
+    background-color: $np-blue-5;
+    color: #ffffff;
+  }
+}
+
+@media only screen and (max-width: 685px) {
+  .navbar {
+    &__link {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .navbar {
+    &__login {
+      display: none;
+    }
+  }
+}

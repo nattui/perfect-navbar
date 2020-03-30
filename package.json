@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "parcel src/index.html -d dist/development/ --open"
+  },
+  "devDependencies": {
+    "parcel-bundler": "latest",
+    "sass": "latest"
+  }
+}
