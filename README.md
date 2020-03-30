@@ -1,6 +1,6 @@
 # Perfect Navbar
 
-
+A demonstration of a perfect navbar.
 
 ## 🚀 Getting Started
 
