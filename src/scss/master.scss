@@ -17,6 +17,7 @@ body {
   font-family: Jost, -apple-system, sans-serif;
   height: 1200px;
   margin: 0;
+  min-width: 200px;
 }
 
 a {
@@ -74,12 +75,12 @@ a {
   transition: background-color 0.2s;
 
   &:hover {
-    background-color: darken($color, 10%);
+    background-color: darken($color, 8%);
   }
 
   &:active,
   &:focus {
-    background-color: darken($color, 20%);
+    background-color: darken($color, 16%);
   }
 }
 
