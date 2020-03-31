@@ -209,6 +209,7 @@ a {
 .subnavbar {
   // @include debug(green);
   @include position-absolute-bottom(calc(100% - 64px));
+  display: none;
   height: calc(100% - 64px);
   left: 0px;
   overflow-y: auto;
@@ -267,6 +268,9 @@ a {
     &__menu {
       @include center;
     }
+  }
+  .subnavbar {
+    display: block;
   }
 }
 

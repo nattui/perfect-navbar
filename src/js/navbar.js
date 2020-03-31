@@ -20,4 +20,4 @@ const setSubnavbar = enable => {
 }
 
 menu.addEventListener('click', () => isMenuActive ? setSubnavbar(false) : setSubnavbar(true));
-window.addEventListener('resize', () => { if (window.innerWidth > 685) setSubnavbar(false) });
+// window.addEventListener('resize', () => { if (window.innerWidth > 685) setSubnavbar(false) });
