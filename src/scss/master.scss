@@ -21,6 +21,7 @@ body {
 }
 
 body {
+  -webkit-tap-highlight-color: transparent;
   font-family: Jost, -apple-system, sans-serif;
   height: 1200px;
   margin: 0;
@@ -186,7 +187,7 @@ a {
   &__login {
     @include transition-button($np-blue-1);
     background-color: $np-blue-1;
-    color: $np-blue-8;
+    color: $np-blue-9;
   }
 
   &__signup {
@@ -208,7 +209,6 @@ a {
 .subnavbar {
   // @include debug(green);
   @include position-absolute-bottom(calc(100% - 64px));
-  display: none;
   height: calc(100% - 64px);
   left: 0px;
   overflow-y: auto;
@@ -243,7 +243,7 @@ a {
     @include position-absolute-bottom(56px);
     @include transition-button($np-blue-1);
     background-color: $np-blue-1;
-    color: $np-blue-8;
+    color: $np-blue-9;
     margin: 16px;
     width: calc(100% - 32px);
   }
@@ -267,9 +267,6 @@ a {
     &__menu {
       @include center;
     }
-  }
-  .subnavbar {
-    display: block;
   }
 }
 

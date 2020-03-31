@@ -4,7 +4,7 @@ const body = document.getElementsByTagName('body')[0];
 const subnavbar = document.getElementsByClassName('subnavbar')[0];
 let isMenuActive = false;
 
-const setFullnavbar = enable => {
+const setSubnavbar = enable => {
   window.scrollTo(0, 0);
   setTimeout(() => menu.blur(), 1000);
   if (enable) {
@@ -19,4 +19,5 @@ const setFullnavbar = enable => {
   isMenuActive = !isMenuActive;
 }
 
-menu.addEventListener('click', () => isMenuActive ? setFullnavbar(false) : setFullnavbar(true));
+menu.addEventListener('click', () => isMenuActive ? setSubnavbar(false) : setSubnavbar(true));
+window.addEventListener('resize', () => { if (window.innerWidth > 685) setSubnavbar(false) });
