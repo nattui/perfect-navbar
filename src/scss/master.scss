@@ -10,6 +10,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   height: 100%;
@@ -20,6 +24,7 @@ body {
   font-family: Jost, -apple-system, sans-serif;
   height: 1200px;
   margin: 0;
+  overflow-x: hidden;
 }
 
 a {
@@ -52,6 +57,11 @@ a {
 @mixin center-vertical {
   display: flex;
   align-items: center;
+}
+
+@mixin position-absolute-bottom($distance) {
+  position: absolute;
+  bottom: $distance;
 }
 
 @mixin transition($property) {
@@ -130,7 +140,6 @@ a {
   &__logomark {
     // @include debug(green);
     @include center-vertical;
-    margin-right: 8px;
     max-height: 32px;
     max-width: 28.26px;
     min-height: 32px;
@@ -140,6 +149,7 @@ a {
   &__logotype {
     // @include debug(green);
     @include center-vertical;
+    margin-left: 8px;
     max-height: 22.27px;
     max-width: 58.37px;
     min-height: 22.27px;
@@ -189,38 +199,19 @@ a {
     @include transition-background;
     border-radius: 4px;
     display: none;
-    height: 32px;
-    width: 32px;
-  }
-}
-
-@media only screen and (max-width: 685px) {
-  .navbar {
-    &__link {
-      display: none;
-    }
-
-    &__menu {
-      @include center;
-    }
-  }
-}
-
-@media only screen and (max-width: 400px) {
-  .navbar {
-    &__login {
-      display: none;
-    }
+    height: 40px;
+    width: 40px;
   }
 }
 
 // Subnavbar
 .subnavbar {
   // @include debug(green);
-  bottom: calc(100% - 64px);
+  @include position-absolute-bottom(calc(100% - 64px));
+  display: none;
   height: calc(100% - 64px);
+  left: 0px;
   overflow-y: auto;
-  position: absolute;
   transition: bottom 0.2s;
   width: 100%;
 
@@ -237,5 +228,85 @@ a {
     color: $np-gray-7;
     display: block;
     padding: 8px 16px;
+  }
+
+  &__button {
+    @include center;
+    border-radius: 4px;
+    font-size: 16px;
+    height: 40px;
+    margin: 0 16px;
+    padding: 0 16px;
+  }
+
+  &__login {
+    @include position-absolute-bottom(56px);
+    @include transition-button($np-blue-1);
+    background-color: $np-blue-1;
+    color: $np-blue-8;
+    margin: 16px;
+    width: calc(100% - 32px);
+  }
+
+  &__signup {
+    @include position-absolute-bottom(0);
+    @include transition-button($np-blue-5);
+    background-color: $np-blue-5;
+    color: #ffffff;
+    width: calc(100% - 32px);
+  }
+}
+
+// Media Queries
+@media only screen and (max-width: 685px) {
+  .navbar {
+    &__link {
+      display: none;
+    }
+
+    &__menu {
+      @include center;
+    }
+  }
+  .subnavbar {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .navbar {
+    &__login {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (max-width: 280px) {
+  .navbar {
+    &__logotype {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (max-width: 215px) {
+  .navbar {
+    &__signup {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (max-height: 364px) {
+  .subnavbar {
+    &__login {
+      position: initial;
+      width: initial;
+    }
+
+    &__signup {
+      position: initial;
+      width: initial;
+    }
   }
 }

@@ -5,6 +5,7 @@ const subnavbar = document.getElementsByClassName('subnavbar')[0];
 let isMenuActive = false;
 
 const setFullnavbar = enable => {
+  window.scrollTo(0, 0);
   setTimeout(() => menu.blur(), 1000);
   if (enable) {
     menu.setAttribute('class', `${menuClass} is-active`);
