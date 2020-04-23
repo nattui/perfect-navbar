@@ -6,7 +6,7 @@ A demonstration of a perfect navbar.
 
 ```bash
 # clone project
-git clone https://github.com/npathapp/core-frontend.git
+git clone https://github.com/nattwasm/perfect-navbar.git
 
 # navigate to project
 cd perfect-navbar
